@@ -1,0 +1,27 @@
+<div>
+  <h3>{{ wheelbarrow.name }}</h3>
+
+  <fieldset>
+    <img src="https://placehold.co/400x300" alt="A picture of the wheelbarrow">
+    <figure>A picture of the wheelbarrow</figure>
+  </fieldset>
+
+  <p>{{ wheelbarrow.description }}</p>
+
+  <p>Prix : {{ wheelbarrow.price }}</p>
+
+  <div>
+    <label for="select-quantity">Quantité</label>
+    <select id="select-quantity" #selectQuantity (change)="wheelbarrowQuantity = parseInt(selectQuantity.value)">
+      <!--TODO build option basé sur quantity-->
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+
+  <div>
+    <button type="button" (click)="addWheelbarrowToBasket()">Ajouter au panier</button>
+  </div>
+
+</div>

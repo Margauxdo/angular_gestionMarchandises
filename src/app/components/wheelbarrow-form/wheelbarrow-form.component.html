@@ -1,0 +1,19 @@
+<form [formGroup]="wheelbarrowForm">
+  <div>
+    <label for="wheelbarrow-name">Nom : </label>
+    <input id="wheelbarrow-name" formControlName="wheelbarrowName">
+  </div>
+  <div>
+    <label for="wheelbarrow-desc">Description: </label>
+    <input id="wheelbarrow-desc" formControlName="wheelbarrowDesc">
+  </div>
+  <div>
+    <label for="wheelbarrow-price">Prix: </label>
+    <input id="wheelbarrow-price" type="number" formControlName="wheelbarrowPrice">
+  </div>
+  <div>
+    <label for="wheelbarrow-quantity">Quantity: </label>
+    <input id="wheelbarrow-quantity" type="number" formControlName="wheelbarrowQuantity">
+  </div>
+  <div><button>Ajouter</button></div>
+</form>

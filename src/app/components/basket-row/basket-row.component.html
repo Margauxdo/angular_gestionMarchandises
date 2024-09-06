@@ -1,0 +1,21 @@
+<div>
+  <h3>{{basketRow.wheelbarrow.name}}</h3>
+
+  <fieldset>
+    <img src="https://placehold.co/400x300" alt="A picture of the wheelbarrow">
+    <figure>A picture of the wheelbarrow</figure>
+  </fieldset>
+
+  <p>{{basketRow.wheelbarrow.description}}</p>
+
+  <p>Prix unitaire : {{basketRow.wheelbarrow.price}}</p>
+
+  <p>Quantité : {{basketRow.quantity}}</p>
+
+  <p>Prix total : {{basketRow.wheelbarrow.price * basketRow.quantity}}</p>
+
+  <div>
+    <button type="button" (click)="deleteWheelbarrowFromBasket()">Supprimer du panier</button>
+  </div>
+
+</div>

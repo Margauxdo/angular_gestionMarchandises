@@ -1,0 +1,5 @@
+@for (wheelbarrow of catalogue; track wheelbarrow.id) {
+  <app-wheelbarrow-card [wheelbarrow]="wheelbarrow"></app-wheelbarrow-card>
+} @empty {
+  <p>Aucune brouette en vente.</p>
+}
