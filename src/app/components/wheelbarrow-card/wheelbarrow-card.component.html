@@ -13,10 +13,10 @@
   <div>
     <label for="select-quantity">Quantité</label>
     <select id="select-quantity" #selectQuantity (change)="wheelbarrowQuantity = parseInt(selectQuantity.value)">
-      <!--TODO build option basé sur quantity-->
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
+
+      @for (i of formatNumberAsArray(wheelbarrow.stock + 1); track $index) {
+        <option [value]="$index">{{$index}}</option>
+      }
     </select>
   </div>
 

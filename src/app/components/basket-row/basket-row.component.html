@@ -1,21 +1,36 @@
 <div>
-  <h3>{{basketRow.wheelbarrow.name}}</h3>
-
-  <fieldset>
-    <img src="https://placehold.co/400x300" alt="A picture of the wheelbarrow">
-    <figure>A picture of the wheelbarrow</figure>
-  </fieldset>
-
-  <p>{{basketRow.wheelbarrow.description}}</p>
-
-  <p>Prix unitaire : {{basketRow.wheelbarrow.price}}</p>
-
-  <p>Quantité : {{basketRow.quantity}}</p>
-
-  <p>Prix total : {{basketRow.wheelbarrow.price * basketRow.quantity}}</p>
 
   <div>
-    <button type="button" (click)="deleteWheelbarrowFromBasket()">Supprimer du panier</button>
+    <img src="https://placehold.co/400x300" alt="A picture of the wheelbarrow">
+  </div>
+
+  <div>
+    <div>
+      <h3>{{ basketRow.wheelbarrow.name }}</h3>
+      <p>{{ basketRow.wheelbarrow.description }}</p>
+    </div>
+
+    <div>
+      <p>Prix : {{ basketRow.wheelbarrow.price }}</p>
+    </div>
+  </div>
+
+  <div>
+    <select id="select-quantity" #selectQuantity (change)="updateQuantity(parseInt(selectQuantity.value))">
+
+      @for (i of formatNumberAsArray(basketRow.wheelbarrow.stock + basketRow.quantity + 1); track $index) {
+        @if ($index === basketRow.quantity) {
+          <option [value]="$index" selected>{{ $index }}</option>
+        } @else {
+          <option [value]="$index">{{ $index }}</option>
+        }
+      }
+    </select>
+
+    <div>
+      <button type="button" (click)="deleteWheelbarrow()">Supprimer du panier</button>
+    </div>
   </div>
 
 </div>
+<!--  <p>Prix total : {{ basketRow.wheelbarrow.price * basketRow.quantity }}</p>-->

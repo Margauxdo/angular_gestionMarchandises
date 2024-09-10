@@ -1,7 +1,8 @@
 <h1>Votre panier</h1>
 
 @for (basketRow of basket; track basketRow.wheelbarrow.id) {
-  <app-basket-row [basketRow]="basketRow"></app-basket-row>
+  <app-basket-row [basketRow]="basketRow" (wheelbarrowToDelete)="deleteWheelbarrowFromBasket($event)"></app-basket-row>
+  <br>
 } @empty {
   <p>Votre panier est vide !</p>
 }

@@ -2,6 +2,8 @@ import {Component, Input} from '@angular/core';
 import {WheelBarrow} from "../../domain/wheelBarrow";
 import {BasketService} from "../../utils/services/basket.service";
 import {FormsModule} from "@angular/forms";
+import {of} from "rxjs";
+import {formatNumberAsArray} from "../../utils/helper";
 
 @Component({
   selector: 'app-wheelbarrow-card[wheelbarrow]',
@@ -21,19 +23,27 @@ export class WheelbarrowCardComponent {
   }
 
   addWheelbarrowToBasket(): void {
-    // this.basketService.basket.push(this.wheelbarrow);
-    this.basketService.basket.push({
-      wheelbarrow: this.wheelbarrow,
-      quantity: this._wheelbarrowQuantity
-    });
-    console.log(this.basketService.basket);
+    if (this._wheelbarrowQuantity) {
+      const index = this.basketService.basket.findIndex(row => row.wheelbarrow === this.wheelbarrow);
 
+      if (index) {
+        this.basketService.basket.push({
+          wheelbarrow: this.wheelbarrow,
+          quantity: this._wheelbarrowQuantity
+        });
+      } else {
+        this.basketService.basket[index].quantity += this._wheelbarrowQuantity;
+      }
+
+      this.wheelbarrow.stock -= this._wheelbarrowQuantity;
+    }
   }
 
   set wheelbarrowQuantity(value: number) {
     this._wheelbarrowQuantity = value;
-    console.log(this._wheelbarrowQuantity);
   }
 
   protected readonly parseInt = parseInt;
+  protected readonly of = of;
+  protected readonly formatNumberAsArray = formatNumberAsArray;
 }

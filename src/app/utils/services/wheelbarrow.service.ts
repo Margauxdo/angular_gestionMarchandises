@@ -12,7 +12,7 @@ export class WheelbarrowService {
     name: 'La Gustave 1',
     description: 'Desc Wheel Barrow 1',
     price: 34.99,
-    quantity: 5,
+    stock: 5,
     wheelNumber: 1,
   };
   wheelBarrow2: WheelBarrow = {
@@ -20,7 +20,7 @@ export class WheelbarrowService {
     name: 'La Gustave 2',
     description: 'Desc Wheel Barrow 2',
     price: 59.99,
-    quantity: 11,
+    stock: 11,
     wheelNumber: 3,
   };
   wheelBarrow3: WheelBarrow = {
@@ -28,11 +28,15 @@ export class WheelbarrowService {
     name: 'La Gustave 3 (dite la Gus)',
     description: 'Desc Wheel Barrow 3',
     price: 149.99,
-    quantity: 4,
+    stock: 4,
     wheelNumber: 3,
   };
 
   constructor() {
     this.catalogue.push(this.wheelBarrow1, this.wheelBarrow2, this.wheelBarrow3);
+  }
+
+  saveWheelBarrow(wheelBarrow: WheelBarrow): void {
+    this.catalogue.push(wheelBarrow);
   }
 }

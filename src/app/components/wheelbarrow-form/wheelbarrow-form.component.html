@@ -1,19 +1,23 @@
-<form [formGroup]="wheelbarrowForm">
+<form [formGroup]="wheelbarrowForm" (ngSubmit)="saveWheelBarrow()">
   <div>
     <label for="wheelbarrow-name">Nom : </label>
-    <input id="wheelbarrow-name" formControlName="wheelbarrowName">
+    <input id="wheelbarrow-name" formControlName="name">
   </div>
   <div>
     <label for="wheelbarrow-desc">Description: </label>
-    <input id="wheelbarrow-desc" formControlName="wheelbarrowDesc">
+    <input id="wheelbarrow-desc" formControlName="description">
+  </div>
+  <div>
+    <label for="wheelbarrow-wheelnumber">Nombre de roues: </label>
+    <input id="wheelbarrow-wheelnumber" type="number" formControlName="wheelNumber">
   </div>
   <div>
     <label for="wheelbarrow-price">Prix: </label>
-    <input id="wheelbarrow-price" type="number" formControlName="wheelbarrowPrice">
+    <input id="wheelbarrow-price" type="number" formControlName="price">
   </div>
   <div>
-    <label for="wheelbarrow-quantity">Quantity: </label>
-    <input id="wheelbarrow-quantity" type="number" formControlName="wheelbarrowQuantity">
+    <label for="wheelbarrow-stock">Quantité: </label>
+    <input id="wheelbarrow-stock" type="number" formControlName="stock">
   </div>
   <div><button>Ajouter</button></div>
 </form>
